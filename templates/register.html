@@ -1,0 +1,53 @@
+<title>Register-Don't have an account? sign up</title>
+<link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-thinking-icon-png-image_4224875.jpg">
+<body>
+<h1>Sign Up Below</h1>
+
+{% for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+
+<form method="POST" action="register">
+    {% csrf_token %}
+    <p>Username:</p>
+    <input id="regbox" type="text" name="username">
+    <p>Email:</p>
+    <input id="regbox" type="email" name="email">
+    <p>Password:</p>
+    <input id="regbox" type="password" name="password">
+    <p>Re-enter password:</p>
+    <input id="regbox" type="password" name="password2"><br><br>
+    <input id="signin" type="submit" name="signin" value="Sign In">
+</form>
+</body>
+<style>
+    body{
+        margin-top: 5%;
+        margin-left: 40%;
+        background-color: bisque;
+    }
+    h1{
+        margin-left: 5%;
+    }
+    #regbox{
+        height: 40px;
+        width: 300px;
+    }
+    #signin{
+    width: 70px;
+    height: 30px;
+    background-color: rgb(254, 254, 254);
+    color: black;
+    font-size: medium;
+    border-radius: 5px;
+    text-align: center;
+    }
+    #signin:hover{
+    background-color: rgb(93, 93, 237);
+    color: white;
+    font-size: medium; 
+    }
+    h3{
+        color: rgb(212, 47, 47);
+    }
+</style>

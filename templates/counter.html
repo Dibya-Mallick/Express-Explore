@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<title>Express & Explore-Count</title>
+<link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-thinking-icon-png-image_4224875.jpg">
+<pre id="wordcount">
+    Congratulations!
+    Your blog has been posted
+    Word count is {{count}}
+</pre>
+<br>
+<a href="back" id="btn1">Keep writing</a> <!--the value back refers to a url which is in the list of url in apps url file
+                                            the url should have a function in views file to respond in that back function redirected
+                                            from counter to main file-->

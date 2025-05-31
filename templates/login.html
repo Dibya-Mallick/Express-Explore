@@ -1,0 +1,54 @@
+<title>Login-To experience the site</title>
+<link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-thinking-icon-png-image_4224875.jpg">
+<body>
+<h1>Log in to Site</h1>
+
+{% for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+
+<form method="POST" action="login">
+    {% csrf_token %}
+    <p>Username:</p>
+    <input type="text" id="box" name="username">
+    <p>Password:</p>
+    <input type="password" id="box" name="password"><br><br>
+    <input type="submit" id="login" name="login">
+    <a href="register">Forgot password? Open a new account</a>
+</form>
+</body>
+<style>
+    body{
+    margin-top: 5%;
+    margin-left: 40%;
+    background-color: bisque;
+    }
+    h1{
+    margin-left: 5%;
+    }
+    #box{
+    height: 40px;
+    width: 300px;
+    }
+    #login{
+    width: 70px;
+    height: 30px;
+    background-color: rgb(254, 254, 254);
+    color: black;
+    font-size: medium;
+    border-radius: 5px;
+    text-align: center;
+    }
+    #login:hover{
+    background-color: rgb(93, 93, 237);
+    color: white;
+    font-size: medium; 
+    }
+    h3{
+        color: rgb(212, 47, 47);
+    }
+    a{
+        text-decoration: none;
+        color: rgb(66, 66, 235);
+    }
+</style>

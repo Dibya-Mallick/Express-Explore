@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<title>Express & Explore</title>
+<link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-thinking-icon-png-image_4224875.jpg">
+<body>
+        {% if user.is_authenticated %}
+        <h1> Welcome to the Express & Explore {{user.username}}</h1>
+        {% else %}
+        <h1> Welcome to the Express & Explore</h1>
+        {% endif %}
+        <div id="buttons">
+            <a href="go_to_read" id="btn2">Read</a>
+            <a href="go_to_explore" id="btn3">Explore</a>
+            {% if user.is_authenticated %}
+            <a href="logout" id="btn">Logout</a>
+            {% else %}
+            <a href="login" id="btn">Login</a>
+            {% endif %}
+        </div>
+        <br>
+    <img src="https://www.beeblueg.com/images/bbg-blog/january-2020/whatisblog.png">
+    
+        <form method="POST" action="index">
+            {% csrf_token %}
+            <h2>Express your mind</h2>
+            {{ form.as_p }}
+            <button type="submit" id="post">Post</button>
+        </form>
+
+    <div id="options">
+        {% for option in options %}
+        <div>
+            <h3>{{option.name}}</h3>
+            <p>{{option.about}}</p>           
+        </div>
+        {% endfor %}
+    </div>
+</body>

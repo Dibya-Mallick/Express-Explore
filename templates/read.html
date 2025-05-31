@@ -1,0 +1,65 @@
+<title>Express & Explore-Read</title>
+<link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-thinking-icon-png-image_4224875.jpg">
+<body>
+    <h1>Express & Explore</h1>
+    <a href="go_to_home" id="btn2">Home</a>
+    {% if user.is_authenticated %}
+    <a href="logout" id="btn">Logout</a>
+    {% else %}
+    <a href="login" id="btn">Login</a>
+    {% endif %}
+    <div id="all">
+        <h2>You have posted {{total}} blogs</h2>
+        {% for blog in blogs reversed %} <!--reversed used to reverse the list(latest blogs shown first)--> 
+        <div id="parts">
+            <a href="blog/{{blog.id}}">
+                <h2>{{blog.title}}</h2>
+                <h5>{{blog.posted}}</h5>
+                <p>{{blog.body|truncatewords:20}}</p> <!--truncatewords used to limit the view of words to be seen in the site-->
+            </a>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+</body>
+<style>
+body{
+    background-color: bisque;
+}
+#all, #btn2,h1{
+    margin-left: 10%;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#btn2{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:white; 
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#btn2:hover{
+    background-color: rgb(0, 183, 0);
+    color: white;
+}
+#btn{
+    margin-left: 1%;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white; 
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#btn:hover{
+    background-color: rgb(206, 42, 42);
+    color: white;
+}
+</style>
